@@ -1,0 +1,60 @@
+<!-- Synchro example -->
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration name="Simple IP Server Conf">
+
+  <define entity="transport"
+    name="trans-ip-v4"
+    file="libtrans_ip.so"
+    create_function="create_cipio_instance"
+    delete_function="delete_cipio_instance"
+    init-args="type=tcp">
+  </define>
+  <!-- Then you specify the opening of the channel, on the transport previously described. -->
+
+  <!-- For a server listening to port 15000, interface "192.168.0.13", it will look like this: -->
+
+  <define entity="channel"
+    name="channel-1"
+    protocol="command-synchro-v1"
+    transport="trans-ip-v4"
+    open-args="mode=server;source=127.0.0.1:15000">
+  </define>
+
+  <!-- For a client sending messages to port 15000 on interface "192.168.0.13", it will look like this: -->
+  <define entity="channel"
+    name="diameter-client"
+    protocol="diameter-v1"
+    transport="trans-ip-v4"
+    open-args="mode=client;dest=127.0.0.1:3868">
+  </define>
+
+
+  <define entity="traffic-param" name="call-rate" value="1"></define>	
+  <define entity="traffic-param" name="display-period" value="1"></define>
+  <define entity="traffic-param" name="log-stat-period" value="1"></define>
+  <define entity="traffic-param" name="log-stat-file" value="/tmp/diameter-client-stat.csv"></define>
+  <define entity="traffic-param" name="call-timeout-ms" value="10000"></define>
+  <define entity="traffic-param" name="display-scenario-stat" value="true"></define>
+  <define entity="traffic-param" name="display-protocol-stat" value="true"></define>
+  <define entity="traffic-param" name="log-protocol-stat-period" value="5"></define>
+  <define entity="traffic-param" name="log-protocol-stat-name" value="all"></define>
+  <define entity="traffic-param" name="log-protocol-stat-file" value="/tmp/diameter-client-protocol-stat.csv"></define>
+
+<!--
+  <define entity="traffic-param" name="data-log-period" value="10"></define>
+  <define entity="traffic-param" name="data-log-number" value="1000"></define>
+  <define entity="traffic-param" name="data-log-file" value="../logs/client-rtt.csv"></define>
+  <define entity="traffic-param" name="data-log-rtdistrib" value="3000"></define>
+-->
+
+  <define entity="traffic-param" name="max-send" value="200"></define>
+  <define entity="traffic-param" name="max-receive" value="200"></define>
+  <define entity="traffic-param" name="max-simultaneous-calls" value="2000"></define>
+  <define entity="traffic-param" name="select-timeout-ms" value="50"></define>
+
+<!--
+  <define entity="traffic-param" name="number-calls" value="5"></define>
+-->
+
+</configuration>
+
