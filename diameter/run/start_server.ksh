@@ -19,6 +19,6 @@
 #
 
 export LD_LIBRARY_PATH=/usr/local/bin
-seagull -conf ../config/conf.server.xml -dico ../config/base_cx.xml -scen ../scenario/sar-saa.server.xml -log ../logs/sar-saa.server.log -llevel ET 
+seagull -conf ../config/conf.server.xml -dico ../config/base_rf.xml -scen ../scenario/sar-saa.server.xml -log ../logs/sar-saa.server.log -llevel ET 
 
 

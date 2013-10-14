@@ -9,27 +9,19 @@
     delete_function="delete_cipio_instance"
     init-args="type=tcp">
   </define>
+
   <!-- Then you specify the opening of the channel, on the transport previously described. -->
 
   <!-- For a server listening to port 15000, interface "192.168.0.13", it will look like this: -->
 
   <define entity="channel"
     name="channel-1"
-    protocol="command-synchro-v1"
-    transport="trans-ip-v4"
-    open-args="mode=server;source=127.0.0.1:15000">
-  </define>
-
-  <!-- For a client sending messages to port 15000 on interface "192.168.0.13", it will look like this: -->
-  <define entity="channel"
-    name="diameter-client"
     protocol="diameter-v1"
     transport="trans-ip-v4"
-    open-args="mode=client;dest=127.0.0.1:3868">
+    open-args="mode=server;source=127.0.0.1:13868">
   </define>
 
-
-  <define entity="traffic-param" name="call-rate" value="1"></define>	
+  <define entity="traffic-param" name="call-rate" value="1"></define>
   <define entity="traffic-param" name="display-period" value="1"></define>
   <define entity="traffic-param" name="log-stat-period" value="1"></define>
   <define entity="traffic-param" name="log-stat-file" value="/tmp/diameter-client-stat.csv"></define>
