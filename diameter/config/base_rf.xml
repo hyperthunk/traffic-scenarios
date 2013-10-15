@@ -285,19 +285,6 @@
         <setfield name="protocol-version" value="1"></setfield>
     </define>
 
-    <define name="RAR">
-        <setfield name="flags" value="128"></setfield>
-        <setfield name="cmd-code" value="258"></setfield>
-        <setfield name="protocol-version" value="128"></setfield>
-    </define>
-
-    <define name="RAA">
-        <setfield name="flags" value="0"></setfield>
-        <setfield name="cmd-code" value="258"></setfield>
-        <setfield name="protocol-version" value="128"></setfield>
-    </define>
-
-        <!-- Diameter Sh (3GPP TS 29.329 V7.1.0) commands -->
       <define name="ACR">
         <!-- It's a request, R bit is set -->
         <setfield name="flags" value="128"></setfield>

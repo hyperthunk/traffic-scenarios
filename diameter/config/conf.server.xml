@@ -18,19 +18,19 @@
     name="channel-1"
     protocol="diameter-v1"
     transport="trans-ip-v4"
-    open-args="mode=server;source=127.0.0.1:13868">
+    open-args="mode=server;source=127.0.0.1:3868">
   </define>
 
-  <define entity="traffic-param" name="call-rate" value="1"></define>
+  <define entity="traffic-param" name="call-rate" value="10000"></define>
   <define entity="traffic-param" name="display-period" value="1"></define>
   <define entity="traffic-param" name="log-stat-period" value="1"></define>
-  <define entity="traffic-param" name="log-stat-file" value="/tmp/diameter-client-stat.csv"></define>
+  <define entity="traffic-param" name="log-stat-file" value="/tmp/diameter-server-stat.csv"></define>
   <define entity="traffic-param" name="call-timeout-ms" value="10000"></define>
   <define entity="traffic-param" name="display-scenario-stat" value="true"></define>
   <define entity="traffic-param" name="display-protocol-stat" value="true"></define>
   <define entity="traffic-param" name="log-protocol-stat-period" value="5"></define>
   <define entity="traffic-param" name="log-protocol-stat-name" value="all"></define>
-  <define entity="traffic-param" name="log-protocol-stat-file" value="/tmp/diameter-client-protocol-stat.csv"></define>
+  <define entity="traffic-param" name="log-protocol-stat-file" value="/tmp/diameter-server-protocol-stat.csv"></define>
 
 <!--
   <define entity="traffic-param" name="data-log-period" value="10"></define>
@@ -40,8 +40,8 @@
 -->
 
   <define entity="traffic-param" name="max-send" value="200"></define>
-  <define entity="traffic-param" name="max-receive" value="200"></define>
-  <define entity="traffic-param" name="max-simultaneous-calls" value="2000"></define>
+  <define entity="traffic-param" name="max-receive" value="200000"></define>
+  <define entity="traffic-param" name="max-simultaneous-calls" value="500"></define>
   <define entity="traffic-param" name="select-timeout-ms" value="50"></define>
 
 <!--

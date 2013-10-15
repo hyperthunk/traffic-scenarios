@@ -21,6 +21,12 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <scenario>
 
+<counter>
+  <counterdef name="HbH-counter" init="1000"> </counterdef>
+  <counterdef name="EtE-counter" init="2000"> </counterdef>
+  <counterdef name="session-counter" init="0"> </counterdef>
+</counter>
+
 <init>
   <receive channel="channel-1">
     <command name="CER">
@@ -33,23 +39,22 @@
   <send channel="channel-1">
     <command name="CEA">
       <avp name="Result-Code" value="2001"> </avp>
-      <avp name="Origin-Host" value="seagull"> </avp>
-      <avp name="Origin-Realm" value="ims.hpintelco.org"> </avp>
-      <avp name="Destination-Realm" value="ims.hpintelco.org"> </avp>
-      <avp name="Destination-Host" value="seagull"> </avp>
+      <avp name="Origin-Host" value="service.example.com"> </avp>
+      <avp name="Origin-Realm" value="example.com"> </avp>
+      <avp name="Destination-Realm" value="example.com"> </avp>
+      <avp name="Destination-Host" value="service.example.com"> </avp>
     </command>
   </send>
 </init>
 
 <traffic>
   <receive channel="channel-1">
-    <command name="RAR">
+    <command name="ACR">
       <!-- Only need to specify what needs to be parsed -->
-      <avp name="Session-Id" value="dont_care"> </avp>
-      <avp name="Origin-Host" value="seagull"> </avp>
-      <avp name="Origin-Realm" value="ims.hpintelco.org"> </avp>
-      <avp name="Destination-Realm" value="ims.hpintelco.org"> </avp>
-      <avp name="Destination-Host" value="seagull"> </avp>
+      <avp name="Origin-Host" value="service.example.com"> </avp>
+      <avp name="Origin-Realm" value="example.com"> </avp>
+      <avp name="Destination-Realm" value="example.com"> </avp>
+      <avp name="Destination-Host" value="service.example.com"> </avp>
     </command>
     <!-- Store action is at the end of the command -->
     <action>
@@ -67,12 +72,11 @@
       <restore name="sid" entity="Session-Id"> </restore>
     </action>
     <!-- Warning: content of SAA to check -->
-    <command name="RAA">
-              <avp name="Origin-Host" value="seagull"> </avp>
-      <avp name="Origin-Realm" value="ims.hpintelco.org"> </avp>
-      <avp name="Destination-Realm" value="ims.hpintelco.org"> </avp>
-      <avp name="Destination-Host" value="seagull"> </avp>
-      <avp name="Session-Id" value="will_be_erased"> </avp>
+    <command name="ACA">
+      <avp name="Origin-Host" value="service.example.com"> </avp>
+      <avp name="Origin-Realm" value="example.com"> </avp>
+      <avp name="Destination-Realm" value="example.com"> </avp>
+      <avp name="Destination-Host" value="service.example.com"> </avp>
       <avp name="Result-Code" value="2002"> </avp>
     </command>
   </send>

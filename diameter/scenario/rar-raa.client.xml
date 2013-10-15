@@ -36,13 +36,10 @@
       <avp name="Vendor-Id" value="11"> </avp>
       <avp name="Product-Name" value="HP Cx Interface"> </avp>
       <avp name="Origin-State-Id" value="1094807040"> </avp>
-      <avp name="Supported-Vendor-Id" value="10415"> </avp>
-      <avp name="Auth-Application-Id" value="167772151"> </avp>
-      <avp name="Acct-Application-Id" value="0"> </avp>
+      <avp name="Auth-Application-Id" value="3"> </avp>
       <avp name="Vendor-Specific-Application-Id">
         <avp name="Vendor-Id" value="11"></avp>
-        <avp name="Auth-Application-Id" value="167772151"></avp>
-        <avp name="Acct-Application-Id" value="0"></avp>
+        <avp name="Auth-Application-Id" value="3"></avp>
       </avp>
       <avp name="Firmware-Revision" value="1"> </avp>
     </command>
@@ -69,7 +66,7 @@
       <set-value name="Session-Id"
                  format=".;1096298391;$(session-counter)"></set-value>
     </action>
-    <command name="RAR">
+    <command name="ACR">
       <avp name="Session-Id" value="value_is_replaced"> </avp>
       <!--      <avp name="Vendor-Specific-Application-Id">
         <avp name="Vendor-Id" value="11"></avp>
@@ -77,10 +74,10 @@
         <avp name="Acct-Application-Id" value="0"></avp>
     </avp>
     -->
-      <avp name="Origin-Host" value="seagull"> </avp>
-      <avp name="Origin-Realm" value="ims.hpintelco.org"> </avp>
-      <avp name="Destination-Realm" value="ims.hpintelco.org"> </avp>
-      <avp name="Destination-Host" value="seagull"> </avp>
+      <avp name="Origin-Host" value="service.example.com"> </avp>
+      <avp name="Origin-Realm" value="example.com"> </avp>
+      <avp name="Destination-Realm" value="example.com"> </avp>
+      <avp name="Destination-Host" value="service.example.com"> </avp>
     </command>
     <action>
       <start-timer></start-timer>
@@ -91,7 +88,7 @@
     <action>
       <stop-timer></stop-timer>
     </action>
-    <command name="RAA">
+    <command name="ACA">
     </command>
   </receive>
 </traffic>
